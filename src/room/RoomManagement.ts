@@ -35,7 +35,7 @@ export class RoomsManager {
         }
     }
 
-    getAllRoom(){
+    getAllRooms(){
         return this.rooms;
     }
     
