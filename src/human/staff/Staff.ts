@@ -18,7 +18,8 @@ export class Staff extends Person {
     protected category: StaffCategory,
     name: string,
     age: number,
-    gender: Gender
+    gender: Gender,
+    protected workTime: number
   ) {
     super(name, age, gender);
   }
