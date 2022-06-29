@@ -1,12 +1,12 @@
 import { Gender, Person } from "../Person";
 
 export enum StaffCategory {
-  MANAGER= 'manager',
-  WAITER = "doctor",
-  CASHEIR = "nurse",
-  SECURITY_G = "secretary",
-  CLEANER = "cleaner",
-  CHEF = 'chef'
+  MANAGER= 'Manager',
+  WAITER = "Waiter",
+  CASHEIR = "Casheir",
+  SECURITY_G = "Security guard",
+  CLEANER = "Cleaner",
+  CHEF = 'Chef'
 }
 
 /**
@@ -14,12 +14,14 @@ export enum StaffCategory {
  */
 export class Staff extends Person {
   protected salary: number = 0; // by default
+  protected totalHoursPerMonth: number = 0; // by default
+  protected mainoHursPerMonth: number = 80; // by default
   constructor(
     protected category: StaffCategory,
     name: string,
     age: number,
     gender: Gender,
-    protected workTime: number
+    
   ) {
     super(name, age, gender);
   }
@@ -30,5 +32,20 @@ export class Staff extends Person {
 
   getSalary() {
     return this.salary;
+  }
+
+  getStaffCategory(){
+    return this.category
+  }
+
+  setTotalHoursPerMonth(totalh: number){
+    this.totalHoursPerMonth = totalh;
+  }
+  geTotalHoursPerMonth() {
+    return this.totalHoursPerMonth;
+  }
+  
+  getMainoHursPerMonth() {
+    return this.mainoHursPerMonth;
   }
 }

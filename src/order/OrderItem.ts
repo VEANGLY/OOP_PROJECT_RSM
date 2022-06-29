@@ -3,41 +3,28 @@ import {Cashier} from '../human/staff/Cashier'
 import { OrderMenu } from '../menu/OrderMenu';
 import {Table} from '../room/Table'
 export class OrderItem {
-    private waiter?: Waiter;
-    private cashier?: Cashier;
-    private table?:Table;
-    private orderItem: OrderMenu;
+    private takeTheOrderToCashier: Waiter;
+    private tableWhereCustomerSit:Table;
+    private orderItems: OrderMenu[] = [];
 
     /**
      * 
-     * @param waiter set waiter to customer
+     * @param takeTheOrderToCashier set waiter to customer
      */
-    setWaiter(waiter: Waiter){
-      this.waiter = waiter
+     setTakeTheOrderToCashier(waiter: Waiter){
+      this.takeTheOrderToCashier = waiter
     }
-    /**
-     * 
-     * @returns 
-     */
-    hasWaiter(): Waiter |undefined{
-      return this.waiter
+  
+    addOrderMenu(order: OrderMenu){
+      this.orderItems.push(order);
     }
 
-    /**
-     * get cashier to customer
-     */
-    setCashier(cashier: Cashier){
-      this.cashier = cashier
-    }
-
-    hasCashier(): Waiter |undefined{
-      return this.waiter
+    setTableWhereCustomerSit(table: Table){
+      this.tableWhereCustomerSit = table
     }
     
-    setOrderItem(orderItem: OrderMenu){
-      this.orderItem = orderItem;
-    }
-    setTableID(newTable: Table){
-      this.table = newTable;
+
+    getOrderItem(){
+      return this.orderItems;
     }
 }
