@@ -11,13 +11,9 @@ var Table = /** @class */ (function () {
      *
      * @param customer Add customer to table
      */
-    Table.prototype.addCustomer = function () {
-        var customer = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            customer[_i] = arguments[_i];
-        }
+    Table.prototype.addCustomer = function (customer) {
         if (this.isTableFree()) {
-            this.customers = this.customers.concat(customer);
+            this.customers.push(customer);
         }
     };
     /**
@@ -32,7 +28,7 @@ var Table = /** @class */ (function () {
      * @returns true is room is free
      */
     Table.prototype.isTableFree = function () {
-        return this.maxChairs < this.getCustomer().length;
+        return this.getCustomer().length < this.maxChairs;
     };
     /**
      *

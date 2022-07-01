@@ -6,7 +6,13 @@ var MenuManager = /** @class */ (function () {
         this.priceOff = 0; //default
         this.listOrerMenu = [];
     }
-    MenuManager.prototype.setPrice = function (price) {
+    MenuManager.prototype.setDayOff = function (relax) {
+        this.dayOff = relax;
+    };
+    MenuManager.prototype.getIsDayOff = function () {
+        return this.dayOff;
+    };
+    MenuManager.prototype.setPriceOff = function (price) {
         this.priceOff = price;
     };
     MenuManager.prototype.getPriceOff = function () {
@@ -15,12 +21,13 @@ var MenuManager = /** @class */ (function () {
     /**
      * Set the price all the items item
      */
-    MenuManager.prototype.setPriceOff = function (daysOff) {
+    MenuManager.prototype.setPriceOffAllMenu = function () {
         var _this = this;
-        if (this.dayOff.getDayOff(daysOff))
-            this.listOrerMenu.forEach(function (item) {
+        if (this.getIsDayOff().getDayOff()) {
+            this.getListOrderMenu().forEach(function (item) {
                 item.updatePrice(item.getPrice() * _this.getPriceOff() / 100);
             });
+        }
     };
     /**
      *
@@ -37,7 +44,7 @@ var MenuManager = /** @class */ (function () {
      *
      * @returns List of menu items
      */
-    MenuManager.prototype.getListOrerMenu = function () {
+    MenuManager.prototype.getListOrderMenu = function () {
         return this.listOrerMenu;
     };
     return MenuManager;

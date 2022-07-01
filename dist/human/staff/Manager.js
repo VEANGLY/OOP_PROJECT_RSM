@@ -15,28 +15,13 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.DayOff = void 0;
-var Event_1 = require("./Event");
-var DayOff = /** @class */ (function (_super) {
-    __extends(DayOff, _super);
-    function DayOff(category, start, end, dayOff, promotion) {
-        if (dayOff === void 0) { dayOff = false; }
-        if (promotion === void 0) { promotion = false; }
-        var _this = _super.call(this, category, start, end) || this;
-        _this.dayOff = dayOff;
-        _this.promotion = promotion;
-        return _this;
+exports.Manager = void 0;
+var Staff_1 = require("./Staff");
+var Manager = /** @class */ (function (_super) {
+    __extends(Manager, _super);
+    function Manager(category, name, age, gender) {
+        return _super.call(this, category, name, age, gender) || this;
     }
-    DayOff.prototype.getDayOff = function () {
-        if (this.dayOff &&
-            this.promotion &&
-            this.category != Event_1.EventCategory.REGULARLY) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    };
-    return DayOff;
-}(Event_1.Event));
-exports.DayOff = DayOff;
+    return Manager;
+}(Staff_1.Staff));
+exports.Manager = Manager;

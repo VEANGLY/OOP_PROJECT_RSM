@@ -14,6 +14,10 @@ var DateTime = /** @class */ (function () {
             this.year === other.year &&
             this.time === other.time);
     };
+    DateTime.prototype.getDay = function () { return this.day; };
+    DateTime.prototype.getMonth = function () { return this.month; };
+    DateTime.prototype.getYear = function () { return this.year; };
+    DateTime.prototype.getTime = function () { return this.time; };
     return DateTime;
 }());
 exports.DateTime = DateTime;

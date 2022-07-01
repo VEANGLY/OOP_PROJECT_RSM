@@ -27,8 +27,8 @@ var MenuCategory;
 })(MenuCategory = exports.MenuCategory || (exports.MenuCategory = {}));
 var Menu = /** @class */ (function (_super) {
     __extends(Menu, _super);
-    function Menu(typemenu, title, description, price, dish) {
-        var _this = _super.call(this, title, description, price, dish) || this;
+    function Menu(typemenu, title, description, price, quantity) {
+        var _this = _super.call(this, title, description, price, quantity) || this;
         _this.typemenu = typemenu;
         return _this;
     }
@@ -42,6 +42,12 @@ var Menu = /** @class */ (function (_super) {
     Menu.prototype.getPrice = function () {
         return this.price;
     };
+    ;
+    Menu.prototype.getFoodName = function () { return this.title; };
+    ;
+    Menu.prototype.getQuantity = function () { return this.quantity; };
+    ;
+    Menu.prototype.getMenuType = function () { return this.typemenu; };
     ;
     return Menu;
 }(MenuItem_1.MenuItem));

@@ -19,12 +19,12 @@ exports.Staff = exports.StaffCategory = void 0;
 var Person_1 = require("../Person");
 var StaffCategory;
 (function (StaffCategory) {
-    StaffCategory["MANAGER"] = "manager";
-    StaffCategory["WAITER"] = "doctor";
-    StaffCategory["CASHEIR"] = "nurse";
-    StaffCategory["SECURITY_G"] = "secretary";
-    StaffCategory["CLEANER"] = "cleaner";
-    StaffCategory["CHEF"] = "chef";
+    StaffCategory["MANAGER"] = "Manager";
+    StaffCategory["WAITER"] = "Waiter";
+    StaffCategory["CASHEIR"] = "Casheir";
+    StaffCategory["SECURITY_G"] = "Security guard";
+    StaffCategory["CLEANER"] = "Cleaner";
+    StaffCategory["CHEF"] = "Chef";
 })(StaffCategory = exports.StaffCategory || (exports.StaffCategory = {}));
 /**
  * A staff is a personn of the hospital with a salary
@@ -35,13 +35,28 @@ var Staff = /** @class */ (function (_super) {
         var _this = _super.call(this, name, age, gender) || this;
         _this.category = category;
         _this.salary = 0; // by default
+        _this.totalHoursPerMonth = 0; // by default
+        _this.mainoHursPerMonth = 80; // by default
         return _this;
     }
+    Staff.prototype.getStaffName = function () { return this.name; };
     Staff.prototype.setSalary = function (salary) {
         this.salary = salary;
     };
     Staff.prototype.getSalary = function () {
         return this.salary;
+    };
+    Staff.prototype.getStaffCategory = function () {
+        return this.category;
+    };
+    Staff.prototype.setTotalHoursPerMonth = function (totalh) {
+        this.totalHoursPerMonth = totalh;
+    };
+    Staff.prototype.geTotalHoursPerMonth = function () {
+        return this.totalHoursPerMonth;
+    };
+    Staff.prototype.getMainoHursPerMonth = function () {
+        return this.mainoHursPerMonth;
     };
     return Staff;
 }(Person_1.Person));

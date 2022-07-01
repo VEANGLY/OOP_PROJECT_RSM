@@ -15,36 +15,48 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
-exports.Chef = exports.ChefStatus = void 0;
+exports.Chef = void 0;
 var Staff_1 = require("./Staff");
-var ChefStatus;
-(function (ChefStatus) {
-    ChefStatus[ChefStatus["COOKING"] = 0] = "COOKING";
-    ChefStatus[ChefStatus["COOKED"] = 1] = "COOKED";
-})(ChefStatus = exports.ChefStatus || (exports.ChefStatus = {}));
+var Menu_1 = require("../../menu/Menu");
 var Chef = /** @class */ (function (_super) {
     __extends(Chef, _super);
     function Chef(category, name, age, gender) {
         var _this = _super.call(this, category, name, age, gender) || this;
-        _this.chefStatus = ChefStatus.COOKED;
+        _this.listMenu = [];
         return _this;
     }
-    Chef.prototype.setFoodForChef = function (food) {
-        this.foods = food;
+    Chef.prototype.addMenu = function (menu) {
+        this.listMenu = menu.getOrderItem();
     };
-    Chef.prototype.isChefFree = function () {
-        return this.foods !== undefined;
+    Chef.prototype.getMenu = function () {
+        return this.listMenu;
     };
-    Chef.prototype.chefStatusNow = function () {
-        if (this.isChefFree()) {
-            return this.chefStatus = ChefStatus.COOKING;
+    Chef.prototype.chefWillDo = function () {
+        var cook = false; //Defual
+        var prepare = false; //Defual
+        this.getMenu().forEach(function (menu) {
+            if (menu.getMenuType() === Menu_1.MenuCategory.FOOD) {
+                cook = true;
+            }
+            else {
+                prepare = true;
+            }
+        });
+        if (prepare && cook) {
+            return "Chef must to cook and prepare";
+        }
+        else if (!prepare && cook) {
+            return 'Chef must to cook';
+        }
+        else if (prepare && !cook) {
+            return 'Chef must to prepare Only';
         }
         else {
-            return this.chefStatus = ChefStatus.COOKED;
+            return 'Doing nothing';
         }
     };
-    Chef.prototype.unSetFoodToChef = function (food) {
-        return this.foods = undefined;
+    Chef.prototype.setWaitToTaktheItem = function (waiter) {
+        this.waiterTakeItemsToCustomer = waiter;
     };
     return Chef;
 }(Staff_1.Staff));

@@ -39,6 +39,15 @@ var RoomsManager = /** @class */ (function () {
     RoomsManager.prototype.getAllRooms = function () {
         return this.rooms;
     };
+    RoomsManager.prototype.getTatalOfCutomer = function () {
+        var allNumberOffCustomer = 0; //Defualt
+        this.getAllRooms().forEach(function (customer) {
+            customer.getTable().forEach(function (table) {
+                allNumberOffCustomer += table.getCustomer().length;
+            });
+        });
+        return allNumberOffCustomer;
+    };
     return RoomsManager;
 }());
 exports.RoomsManager = RoomsManager;

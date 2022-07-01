@@ -3,35 +3,29 @@ exports.__esModule = true;
 exports.OrderItem = void 0;
 var OrderItem = /** @class */ (function () {
     function OrderItem() {
+        this.orderItems = [];
     }
     /**
      *
-     * @param waiter set waiter to customer
+     * @param takeTheOrderToCashier set waiter to customer
      */
-    OrderItem.prototype.setWaiter = function (waiter) {
-        this.waiter = waiter;
+    OrderItem.prototype.setTakeTheOrderToCashier = function (waiter) {
+        this.takeTheOrderToCashier = waiter;
     };
-    /**
-     *
-     * @returns
-     */
-    OrderItem.prototype.hasWaiter = function () {
-        return this.waiter;
+    OrderItem.prototype.getTakeTheOrderToCashier = function () {
+        return this.takeTheOrderToCashier;
     };
-    /**
-     * get cashier to customer
-     */
-    OrderItem.prototype.setCashier = function (cashier) {
-        this.cashier = cashier;
+    OrderItem.prototype.addOrderMenu = function (order) {
+        this.orderItems = order.getListOrderMenu();
     };
-    OrderItem.prototype.hasCashier = function () {
-        return this.waiter;
+    OrderItem.prototype.setTableWhereCustomerSit = function (table) {
+        this.tableWhereCustomerSit = table;
     };
-    OrderItem.prototype.setOrderItem = function (orderItem) {
-        this.orderItem = orderItem;
+    OrderItem.prototype.getTableWhereCustomerSit = function () {
+        return this.tableWhereCustomerSit;
     };
-    OrderItem.prototype.setTableID = function (newTable) {
-        this.table = newTable;
+    OrderItem.prototype.getOrderItem = function () {
+        return this.orderItems;
     };
     return OrderItem;
 }());

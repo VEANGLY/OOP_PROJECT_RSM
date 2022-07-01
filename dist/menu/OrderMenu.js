@@ -19,22 +19,11 @@ exports.OrderMenu = void 0;
 var Menu_1 = require("./Menu");
 var OrderMenu = /** @class */ (function (_super) {
     __extends(OrderMenu, _super);
-    function OrderMenu(id, typemenu, title, description, price, dish) {
-        var _this = _super.call(this, typemenu, title, description, price, dish) || this;
+    function OrderMenu(id, typemenu, title, description, price, quantity) {
+        var _this = _super.call(this, typemenu, title, description, price, quantity) || this;
         _this.id = id;
         return _this;
     }
-    /**
-     *
-     * @param number Return update price
-     */
-    OrderMenu.prototype.updatePrice = function (price) {
-        this.price = price;
-    };
-    OrderMenu.prototype.getPrice = function () {
-        return this.price;
-    };
-    ;
     return OrderMenu;
 }(Menu_1.Menu));
 exports.OrderMenu = OrderMenu;

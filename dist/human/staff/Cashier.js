@@ -17,14 +17,19 @@ var __extends = (this && this.__extends) || (function () {
 exports.__esModule = true;
 exports.Cashier = void 0;
 var Staff_1 = require("./Staff");
-/**
- * A doctor is a staff with a mediacal speciality
- */
 var Cashier = /** @class */ (function (_super) {
     __extends(Cashier, _super);
     function Cashier(category, name, age, gender) {
-        return _super.call(this, category, name, age, gender) || this;
+        var _this = _super.call(this, category, name, age, gender) || this;
+        _this.listOrders = [];
+        return _this;
     }
+    Cashier.prototype.setListorder = function (listOrder) {
+        this.listOrders = listOrder.getListOrderMenu();
+    };
+    Cashier.prototype.getListorder = function () {
+        return this.listOrders;
+    };
     return Cashier;
 }(Staff_1.Staff));
 exports.Cashier = Cashier;

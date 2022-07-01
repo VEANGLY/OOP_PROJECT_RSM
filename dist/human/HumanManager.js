@@ -1,28 +1,38 @@
-// import { Patient } from "./patient/Patient";
-// import { Doctor } from "./staff/Cashier";
-// import { Staff } from "./staff/Staff";
-// export class HumanManager {
-//   private customers: Patient[] = [];
-//   private staffs: Staff[] = [];
-//   adddPatient(customer: Customer){
-//     this.customers.push(custompatient);
-//   }
-//   getdPatients() {
-//     return this.patients;
-//   }
-//   addStaff(staff: Staff) {
-//     this.staffs.push(staff);
-//   }
-//   getStaffs() {
-//     return this.staffs;
-//   }
-//   /**
-//    *
-//    * @returns the first doctor found among the staff, having the given disease as speciality
-//    */
-//   getADoctorWithSkill(): Doctor | undefined {
-//     let staffs = this.getStaffs();
-//     staffs[0]
-//     return undefined; //TODO
-//   }
-// }
+"use strict";
+exports.__esModule = true;
+exports.HumanManager = void 0;
+var Staff_1 = require("./staff/Staff");
+var HumanManager = /** @class */ (function () {
+    function HumanManager() {
+        this.staffs = [];
+    }
+    HumanManager.prototype.addStaff = function (staff) {
+        this.staffs.push(staff);
+    };
+    HumanManager.prototype.getStaffs = function () {
+        return this.staffs;
+    };
+    /**
+     * Set the salary of the staff if prefer to work overtime
+     * Note: the number is extra money per hour
+     */
+    HumanManager.prototype.setetSalaryToStaff = function () {
+        var staffs = this.getStaffs();
+        staffs.forEach(function (staff) {
+            if (staff.getStaffCategory() === Staff_1.StaffCategory.MANAGER) {
+                staff.setSalary(staff.getSalary() + 20 * (staff.geTotalHoursPerMonth() - staff.getMainoHursPerMonth()));
+            }
+            else if (staff.getStaffCategory() === Staff_1.StaffCategory.CHEF) {
+                staff.setSalary(staff.getSalary() + 10 * (staff.geTotalHoursPerMonth() - staff.getMainoHursPerMonth()));
+            }
+            else if (staff.getStaffCategory() === Staff_1.StaffCategory.WAITER) {
+                staff.setSalary(staff.getSalary() + 5 * (staff.geTotalHoursPerMonth() - staff.getMainoHursPerMonth()));
+            }
+            else if (staff.getStaffCategory() === Staff_1.StaffCategory.CASHEIR) {
+                staff.setSalary(staff.getSalary() + 5 * (staff.geTotalHoursPerMonth() - staff.getMainoHursPerMonth()));
+            }
+        });
+    };
+    return HumanManager;
+}());
+exports.HumanManager = HumanManager;
