@@ -5,6 +5,9 @@ export class Table {
         private tableID:number,
         private maxChairs: number
     ) {}
+    getTableId():number {
+        return this.tableID;
+    }
     /**
      * 
      * @param customer Add customer to table

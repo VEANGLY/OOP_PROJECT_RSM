@@ -1,11 +1,7 @@
-
 import { Staff, StaffCategory} from "./staff/Staff";
 export class HumanManager {
   private staffs: Staff[] = [];
   
-  getdPatients() {
-  }
-
   addStaff(staff: Staff) {
     this.staffs.push(staff);
   }
@@ -15,20 +11,18 @@ export class HumanManager {
   }
   /**
    * Set the salary of the staff if prefer to work overtime
+   * Note: the number is extra money per hour
    */
   setetSalaryToStaff(){
     let staffs = this.getStaffs();
     staffs.forEach(staff =>{
       if(staff.getStaffCategory() === StaffCategory.MANAGER){
         staff.setSalary(staff.getSalary() + 20*(staff.geTotalHoursPerMonth()-staff.getMainoHursPerMonth()))
-      }
-      else if(staff.getStaffCategory() === StaffCategory.CHEF){
+      }else if(staff.getStaffCategory() === StaffCategory.CHEF){
         staff.setSalary(staff.getSalary() + 10*(staff.geTotalHoursPerMonth()-staff.getMainoHursPerMonth()))
-      }
-      else if(staff.getStaffCategory() === StaffCategory.WAITER){
+      }else if(staff.getStaffCategory() === StaffCategory.WAITER){
         staff.setSalary(staff.getSalary() + 5*(staff.geTotalHoursPerMonth()-staff.getMainoHursPerMonth()))
-      }
-      else if(staff.getStaffCategory() === StaffCategory.CASHEIR){
+      }else if(staff.getStaffCategory() === StaffCategory.CASHEIR){
         staff.setSalary(staff.getSalary() + 5*(staff.geTotalHoursPerMonth()-staff.getMainoHursPerMonth()))
       }
     })

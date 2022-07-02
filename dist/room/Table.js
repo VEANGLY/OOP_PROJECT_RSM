@@ -7,6 +7,9 @@ var Table = /** @class */ (function () {
         this.maxChairs = maxChairs;
         this.customers = [];
     }
+    Table.prototype.getTableId = function () {
+        return this.tableID;
+    };
     /**
      *
      * @param customer Add customer to table

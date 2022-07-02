@@ -6,18 +6,8 @@ export class OrderMenu extends Menu {
         typemenu:MenuCategory,
         title: string,
         description: string,
-        price:number,dish:QuantityItem)
+        price:number,
+        quantity:QuantityItem)
+    {super(typemenu, title, description, price, quantity)}
 
-    {super(typemenu, title, description, price, dish)}
-    /**
-     * 
-     * @param number Return update price
-     */
-    updatePrice(price:number){
-        this.price = price;
-    }
-
-    getPrice():number {
-        return this.price
-    };
 }

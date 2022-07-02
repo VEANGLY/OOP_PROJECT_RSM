@@ -14,10 +14,14 @@ export class DayOff extends Event {
   }
 
   getDayOff(){
-    return ( 
-        this.dayOff && 
-        this.promotion&&
-        this.category !== EventCategory.REGULARLY
-      )
+    if ( 
+        this.dayOff &&
+        this.promotion &&
+        this.category != EventCategory.REGULARLY
+      ){
+        return true;
+      }else{
+        return false;
+      }
   } 
 }

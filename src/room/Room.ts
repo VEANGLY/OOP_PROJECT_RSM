@@ -9,15 +9,16 @@ export enum RoomStatus {
 
 export class Room {
     private tables: Table[] = [];
+    length: number;
     constructor(
         private roomId:number,
         private status: RoomStatus,
         private maxCapacity: number
     ) {}
-        /**
-         * 
-         * @param table add table to the room.
-         */
+    /**
+     * 
+     * @param table add table to the room.
+     */
     addTable(table:Table){
         if(this.maxCapacity > this.tables.length){
             this.tables.push(table);

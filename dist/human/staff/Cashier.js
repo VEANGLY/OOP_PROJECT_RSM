@@ -30,6 +30,28 @@ var Cashier = /** @class */ (function (_super) {
     Cashier.prototype.getListorder = function () {
         return this.listOrders;
     };
+    /**
+     * Print the payment to customer
+     */
+    Cashier.prototype.printBillingForCutomer = function () {
+        var _this = this;
+        this.getListorder().forEach(function (listOrder) {
+            var totalPrice = 0; //defualt
+            console.log('- Table_ID: ' + listOrder.getTableWhereCustomerSit().getTableId());
+            console.log('- Waiter_Name: ' + listOrder.getTakeTheOrderToCashier().getStaffName());
+            listOrder.getOrderItem().forEach(function (orderItem) {
+                totalPrice += orderItem.getPrice();
+                console.log('- Food_Name: ' + orderItem.getFoodName() + " and price is: " + orderItem.getPrice() + "$");
+                console.log('- Quantity order: ' + orderItem.getQuantity());
+            });
+            console.log('- Total: ' + totalPrice + "$");
+            console.log('- Cashier_Name: ' + _this.name);
+            console.log('- Date: ' + _this.date.getDay() + ', ' + _this.date.getMonth() + ', ' + _this.date.getYear() + ', ' + _this.date.getTime());
+        });
+    };
+    Cashier.prototype.setDateTime = function (datetime) {
+        return this.date = datetime;
+    };
     return Cashier;
 }(Staff_1.Staff));
 exports.Cashier = Cashier;

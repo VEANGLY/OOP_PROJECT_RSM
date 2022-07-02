@@ -1,38 +1,52 @@
 import { Waiter} from '../../human/staff/Waiter'
-import { Chef, ChefStatus} from '../../human/staff/Chef'
-import { OrderMenu } from '../../menu/OrderMenu'
+import { Chef} from '../../human/staff/Chef'
+import { OrderItem } from '../../order/OrderItem';
+import { OrderManager } from '../../order/OrderManager';
 
 export class Kitchen {
-    private orderMenu: OrderMenu[] = [];
-    private chelves: Chef[] = [];
-    private takeItemFromKitchenToTable: Waiter;
-    private takeItemFromTableToKitchen: Waiter;
-
-//    getItems(){
-//         return this.takeItemFromTableToKitchen.takeItemFromTableToKitchen();
-//    }
-    // addOrderItems(){
-    //     this.orderMenu.push(this.getItems());
-    // }
+    private listOrders:OrderItem[] = [];
+    private cookers: Chef[] = [];
 
     addChefToKitchen(chef:Chef){
-        this.chelves.push(chef);
+        this.cookers.push(chef);
     }
 
-    /***
-     * Find the chef who is currently free to take responsibility
-     */
-    getCooking(){
-        this.orderMenu.forEach((item) => {
-            this.chelves.forEach(chef =>{
-                if(ChefStatus.COOKED == chef.chefStatusNow()){
-                    chef.setFoodForChef(item);
-                }else{
-                    this.takeItemFromKitchenToTable.takeItemFromKitchenToTable(item);
-                    chef.unSetFoodToChef(item)
-                }
-            })
-        })
+    getChef(){
+        return this.cookers
     }
 
+    addOrderItemsToKitchen(orderItems:OrderManager){
+        this.listOrders = orderItems.getListOrderMenu();
+    }
+
+    getListOrderMenuOfKitchen(){
+        return this.listOrders
+    }
+
+    getToCookOrPrepare(){
+        for(var i = 0; i < this.isChefEqualToMenu(); i++)
+        {
+            this.getChef()[i].addMenu(this.getListOrderMenuOfKitchen()[i])
+        }
+    }
+
+    isChefFree(){
+        return this.getChef().length > this.getListOrderMenuOfKitchen().length;
+    }
+
+    isMenuFree(){
+        return this.getChef().length < this.getListOrderMenuOfKitchen().length;
+    }
+
+    isChefEqualToMenu(): number{
+        if(this.isChefFree()){
+            return this.getChef().length 
+        }else{
+            return this.getListOrderMenuOfKitchen().length
+        }
+    }
+
+    isKitchenFree(){
+       return (0 <this.getChef().length && 0 < this.getListOrderMenuOfKitchen().length)
+    }
 }

@@ -21,11 +21,11 @@ export class Staff extends Person {
     name: string,
     age: number,
     gender: Gender,
-    
   ) {
     super(name, age, gender);
   }
-
+  getStaffName(): string { return this.name; }
+  
   setSalary(salary: number) {
     this.salary = salary;
   }

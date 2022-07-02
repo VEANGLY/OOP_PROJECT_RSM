@@ -39,11 +39,12 @@ var RoomsManager = /** @class */ (function () {
     RoomsManager.prototype.getAllRooms = function () {
         return this.rooms;
     };
-    RoomsManager.prototype.getTatalOfCutomer = function () {
+    RoomsManager.prototype.getTotalOfCutomer = function () {
         var allNumberOffCustomer = 0; //Defualt
-        this.getAllRooms().forEach(function (customer) {
-            customer.getTable().forEach(function (table) {
-                allNumberOffCustomer += table.getCustomer().length;
+        var temperaryTables = [];
+        this.getAllRooms().forEach(function (room) {
+            room.getTable().forEach(function (table) {
+                allNumberOffCustomer += table.numberOfCustomerOnTable();
             });
         });
         return allNumberOffCustomer;

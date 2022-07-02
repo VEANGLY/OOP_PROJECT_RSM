@@ -6,36 +6,43 @@ export class MenuManager {
     private dayOff:DayOff;
     private listOrerMenu:OrderMenu[] = [];
 
-    setPrice(price: number) {
+    setDayOff(relax:DayOff){
+        this.dayOff = relax;
+    }
+    getIsDayOff(){
+        return this.dayOff;
+    }
+
+    setPriceOff(price: number) {
         this.priceOff = price;
     }
 
     private getPriceOff(): number {
         return this.priceOff;
     }
-    
     /**
      * Set the price all the items item
      */
-    setPriceOff(daysOff: DayOff){
-        if(this.dayOff.getDayOff(daysOff))
-        this.listOrerMenu.forEach((item: OrderMenu) =>{
-            item.updatePrice(item.getPrice()*this.getPriceOff()/100) ;
-        })
+    setPriceOffAllMenu(){
+        if(this.getIsDayOff().getDayOff()){
+            this.getListOrderMenu().forEach((item: OrderMenu) =>{
+                item.updatePrice(item.getPrice()*this.getPriceOff()/100) ;
+            })
+        }
     }
     /**
      * 
      * @param orderItem add to list customer who order
      */
     addOrderItems(...orderItem: OrderMenu[]){
-        this.listOrerMenu = this.listOrerMenu.concat(orderItem)
+        this.listOrerMenu = this.listOrerMenu.concat(orderItem);
     }
 
     /**
      * 
      * @returns List of menu items 
      */
-    getListOrerMenu(){
-        return this.listOrerMenu
+    getListOrderMenu(){
+        return this.listOrerMenu;
     }
 }

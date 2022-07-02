@@ -14,4 +14,8 @@ export class DateTime {
       this.time === other.time
     );
   }
+  getDay(): number { return this.day; }
+  getMonth(): number { return this.month; }
+  getYear(): number { return this.year; }
+  getTime(): number { return this.time; }
 }

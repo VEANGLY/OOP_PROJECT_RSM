@@ -1,6 +1,6 @@
 export enum Gender {
-  MALE,
-  FEMALE,
+  MALE= "male",
+  FEMALE= "female",
 }
 /**
  * Any personn in the hospital - common attributes

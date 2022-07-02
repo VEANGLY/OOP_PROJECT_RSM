@@ -11,6 +11,5 @@ export class Waiter extends Staff {
   {
     super(category, name, age, gender);
   }
- 
 }
 

@@ -46,12 +46,12 @@ Seaul.hr.addStaff(Rasmey);
 Seaul.hr.addStaff(Him);
 Seaul.hr.addStaff(Ronan);
 Seaul.hr.addStaff(Rady);
-// Seaul.hr.setetSalaryToStaff() // Use to set salary for staff who have extraTime
-// console.log(Seaul.hr)
-console.log('The chef salary is: ' + Rasmey.getSalary());
-console.log('The Manager salary is: ' + Him.getSalary());
-console.log('The Cashier salary is: ' + Ronan.getSalary());
-console.log('The waiter salary is: ' + Rady.getSalary());
+Seaul.hr.setetSalaryToStaff(); // Use to set salary for staff who have extraTime
+// console.log(Seaul.hr);
+// console.log('The chef salary is: '+ Rasmey.getSalary());
+// console.log('The Manager salary is: '+ Him.getSalary());
+// console.log('The Cashier salary is: '+ Ronan.getSalary());
+// console.log('The waiter salary is: '+ Rady.getSalary());
 //...............Calendar.......................
 var start = new DateTime_1.DateTime(13, 4, 2022, 10);
 var end = new DateTime_1.DateTime(15, 4, 2022, 8);
@@ -112,7 +112,7 @@ Seaul.rooms.addRoom(Room2);
 Seaul.rooms.addRoom(Room3);
 // console.log(Seaul.rooms.getFreeRooms());
 // console.log(Seaul.rooms.getAllRooms());
-// console.log(Seaul.rooms.getTatalOfCutomer());
+console.log(Seaul.rooms.getTotalOfCutomer());
 //..............Order...............................
 var myOrder = new OrderItem_1.OrderItem();
 myOrder.addOrderMenu(Seaul.menu); //add menu to order
@@ -123,4 +123,6 @@ Seaul.Order.addOrderMenuToListOrder(myOrder); // Add to list Order menu
 // console.log(Seaul.Order.getListOrderMenu())//Display list of order
 //...............PAYMENT................................
 Rady.setListorder(Seaul.Order);
-// console.log(Rady.printBillingForCutomer());
+var dateOfEating = new DateTime_1.DateTime(30, 6, 2022, 9); //Date of customer join the Restaurant
+Rady.setDateTime(dateOfEating);
+// console.log(Rady.printBillingForCutomer());//Run the for print the reciept

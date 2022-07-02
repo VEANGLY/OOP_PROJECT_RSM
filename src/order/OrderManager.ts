@@ -4,15 +4,13 @@ import { OrderMenu } from '../menu/OrderMenu';
 import {Table} from '../room/Table'
 import { OrderItem } from './OrderItem';
 
-export class OrderManagmer {
+export class OrderManager {
     private listOrerMenu: OrderItem[] = [];
-    
-
     addOrderMenuToListOrder(order: OrderItem){
         this.listOrerMenu.push(order);
     }
 
-    getListOrerMenu(){
+    getListOrderMenu(){
         return this.listOrerMenu;
     }
 }
